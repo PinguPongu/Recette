@@ -9,10 +9,12 @@ interface RecipeCardsProps {
 
 const RecipeCards = ({ recipes }: RecipeCardsProps) => {
   return (
-    <div className="recipe-cards-container">
-      {recipes.map((recipe) => (
-        <RecipeCard recipe={recipe}/>
-      ))}
+    <div className="recipe-card-container">
+      <div className="recipe-cards">
+        {recipes.map((recipe) => (
+          <RecipeCard recipe={recipe}/>
+        ))}
+      </div>
     </div>
   );
 };

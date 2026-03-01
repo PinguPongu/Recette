@@ -1,8 +1,8 @@
-import React from "react";
 import { useParams } from "react-router-dom";
 import { RecipeDetails as RecipeDetail } from "../types/Recipe"
 import { fetchRecipeDetails } from "../data/fetchRecipes";
 import { useEffect, useState } from "react";
+import Loading from "./Loading";
 
 
 const RecipeDetails = () => {
@@ -17,7 +17,7 @@ const RecipeDetails = () => {
     }
   }, [id]);
 
-  if (!recipeDetails) return <p>Loading...</p>;
+  if (!recipeDetails) return <Loading/>;
 
   const calories = recipeDetails.tags.find(t => t.key === "Calories")?.value;
   const totalTime = recipeDetails.tags.find(t => t.key === "TotalMinutes")?.value
