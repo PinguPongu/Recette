@@ -32,10 +32,11 @@ function Home() {
   const filteredRecipes = recipes.filter((recipe) => {
     const matchesCategory =
       selectedCategory === "ALL" ||
-      recipe.recipeType.toUpperCase() === selectedCategory;
+      categoryMap[recipe.recipeType].toUpperCase() === selectedCategory;
 
     const matchesSearch =
       recipe.title.toLowerCase().includes(searchValue.toLowerCase());
+    
 
     return matchesCategory && matchesSearch;
   });
